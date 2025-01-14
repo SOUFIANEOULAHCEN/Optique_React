@@ -1,7 +1,11 @@
-import React from 'react';
-
+import React, { useContext } from 'react';
+import { CartContext } from '../../context/CartContext';
+import { Heart } from 'lucide-react';
 export default function ProductGrid() {
+
+  const { addToCart, toggleFavorite, favorites } = useContext(CartContext);
   const products = [
+  
     {
       id: 1,
       name: "Lunettes de vue Classique",
@@ -83,7 +87,7 @@ export default function ProductGrid() {
       category: "Lunettes de Sport"
     }
   ];
-  
+
   return (
     <div className="py-16 bg-white">
       <div className="container mx-auto px-4">
@@ -116,13 +120,26 @@ export default function ProductGrid() {
                   </span>
                 )}
                 <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors" />
+                <button
+                  onClick={() => toggleFavorite(product)}
+                  className="absolute top-4 right-4 p-2 bg-white rounded-full shadow"
+                >
+                  <Heart
+                    className={`w-5 h-5 ${
+                      favorites.some(fav => fav.id === product.id) ? 'text-red-500' : 'text-gray-500'
+                    }`}
+                  />
+                </button>
               </div>
               <h3 className="text-sm font-medium mb-2">{product.name}</h3>
               <div className="flex items-center justify-between">
                 <span className="text-lg font-bold text-emerald-900">
                   {product.price.toFixed(2)} €
                 </span>
-                <button className="text-sm text-white bg-emerald-900 px-4 py-2 hover:bg-amber-500 transition-colors">
+                <button
+                  onClick={() => addToCart(product)}
+                  className="text-sm text-white bg-emerald-900 px-4 py-2 hover:bg-amber-500 transition-colors"
+                >
                   AJOUTER AU PANIER
                 </button>
               </div>
@@ -133,4 +150,3 @@ export default function ProductGrid() {
     </div>
   );
 }
-

@@ -1,9 +1,11 @@
-import React, { useState } from 'react';
+// Header.jsx
+import React, { useContext } from 'react';
 import { ShoppingCart, Search, ChevronDown } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import { CartContext } from '../../context/CartContext';
 
 export default function Header() {
-  const [isOpen, setIsOpen] = useState(false);
+  const { cart } = useContext(CartContext);
 
   return (
     <header className="bg-white border-b">
@@ -38,7 +40,7 @@ export default function Header() {
                 BOUTIQUE <ChevronDown className="w-4 h-4" />
               </button>
             </div>
-            <Link to="/caracteristiques" className="hover:text-amber-500">CARACTÉRISTIQUES</Link>
+            <Link to="/caracteristiques" className="hover:text-amber-500">CARACTÉRISTIQUES </Link>
             <Link to="/a-propos" className="hover:text-amber-500">À PROPOS</Link>
             <Link to="/blog" className="hover:text-amber-500">BLOG</Link>
             <Link to="/contact" className="hover:text-amber-500">CONTACT</Link>
@@ -51,7 +53,7 @@ export default function Header() {
             <Link to="/panier" className="p-2 hover:text-amber-500 relative">
               <ShoppingCart className="w-5 h-5" />
               <span className="absolute -top-1 -right-1 bg-amber-500 text-white text-xs rounded-full w-4 h-4 flex items-center justify-center">
-                0
+                {cart.length}
               </span>
             </Link>
           </div>
@@ -60,4 +62,3 @@ export default function Header() {
     </header>
   );
 }
-
