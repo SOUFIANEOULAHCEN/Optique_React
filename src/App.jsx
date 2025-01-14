@@ -11,6 +11,8 @@ import LunettesDeSoleil from './components/pages/LunettesDeSoleil';
 import LunettesEnfants from './components/pages/LunettesEnfants';
 import Cart from './components/Cart/Cart'; // Importez le composant Cart
 import { CartProvider } from './context/CartContext';
+import CategoryPage from './components/layout/CategoryPage'; 
+import Checkout from './components/Checkout/Checkout';
 
 export default function App() {
   return (
@@ -30,10 +32,12 @@ export default function App() {
                   </>
                 }
               />
-              <Route path="/lunettes-de-vue" element={<LunettesDeVue />} />
-              <Route path="/lunettes-de-soleil" element={<LunettesDeSoleil />} />
-              <Route path="/lunettes-enfants" element={<LunettesEnfants />} />
+                {/* <Route path="/lunettes-de-vue" element={<CategoryPage />} />
+              <Route path="/lunettes-de-soleil" element={<CategoryPage />} />
+              <Route path="/lunettes-enfants" element={<CategoryPage />} /> */}
+              <Route path="/:category" element={<CategoryPage />} />
               <Route path="/panier" element={<Cart />} /> {/* Route pour le panier */}
+              <Route path="/checkout" element={<Checkout />} />
             </Routes>
           </main>
           <Footer />

@@ -2,25 +2,24 @@ import React from 'react';
 import { Link } from 'react-router-dom'; // Importez Link depuis react-router-dom
 
 export default function Categories() {
-  // Données des catégories
   const categories = [
     {
       id: 1,
       name: 'Lunettes de Vue',
       image: 'https://images.unsplash.com/photo-1612817159949-195b6eb9e31a?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80',
-      link: '/lunettes-de-vue', // Lien vers la catégorie
+      link: '/Lunettes de Vue', // Utilisez le même nom que dans les produits
     },
     {
       id: 2,
       name: 'Lunettes de Soleil',
       image: 'https://images.unsplash.com/photo-1591076482161-42ce6da69f67?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80',
-      link: '/lunettes-de-soleil', // Lien vers la catégorie
+      link: '/Lunettes de Soleil', // Utilisez le même nom que dans les produits
     },
     {
       id: 3,
-      name: 'Lunettes pour Enfants',
+      name: 'Lunettes de Sport',
       image: 'https://images.unsplash.com/photo-1612817158486-7f0a7d0b8b8a?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80',
-      link: '/lunettes-enfants', // Lien vers la catégorie
+      link: '/Lunettes de Sport', // Utilisez le même nom que dans les produits
     },
   ];
 
