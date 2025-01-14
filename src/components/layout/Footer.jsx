@@ -7,9 +7,9 @@ export default function Footer() {
       <div className="container mx-auto px-4">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-12">
           <div>
-            <h3 className="text-xl font-bold text-emerald-900 mb-4">OPTIQUE CHIC</h3>
+            <h3 className="text-xl font-bold text-emerald-900 mb-4">OPTIQUE NOURIA</h3>
             <p className="text-gray-600 text-sm">
-              Optique Chic est votre destination pour des lunettes de qualité. 
+              Optique Nouria est votre destination pour des lunettes de qualité. 
               Le meilleur choix pour votre style et votre confort visuel.
             </p>
           </div>
@@ -39,22 +39,22 @@ export default function Footer() {
             <ul className="space-y-4 text-sm text-gray-600">
               <li className="flex items-center gap-2">
                 <MapPin className="w-4 h-4 text-emerald-900" />
-                123 Rue de la Mode, 75001 Paris, France
+                123 Rue , xxxxxxx , tarmigt , ouarzazate
               </li>
               <li className="flex items-center gap-2">
                 <Phone className="w-4 h-4 text-emerald-900" />
-                +33 1 23 45 67 89
+                +212 624 193 209
               </li>
               <li className="flex items-center gap-2">
                 <Mail className="w-4 h-4 text-emerald-900" />
-                contact@optiquechic.fr
+                contact@optiquenouria.com
               </li>
             </ul>
           </div>
         </div>
 
         <div className="border-t pt-8 text-center text-sm text-gray-600">
-          <p>&copy; 2025 OPTIQUE CHIC. Tous droits réservés</p>
+          <p>&copy; 2025 OPTIQUE NOURIA. Tous droits réservés</p>
         </div>
       </div>
     </footer>

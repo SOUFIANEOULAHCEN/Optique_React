@@ -28,7 +28,7 @@ export default function Header() {
 
         <div className="flex items-center justify-between py-4">
           <Link to="/" className="text-2xl font-bold text-emerald-900">
-            OPTIQUE CHIC
+            OPTIQUE NOURIA
           </Link>
 
           <nav className="hidden md:flex items-center gap-6">
