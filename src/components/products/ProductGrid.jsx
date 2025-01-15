@@ -1,12 +1,13 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { CartContext } from '../../context/CartContext';
 import { Heart } from 'lucide-react';
-export default function ProductGrid() {
+import { useLocation } from 'react-router-dom';
 
+export default function ProductGrid() {
   const { addToCart, toggleFavorite, favorites } = useContext(CartContext);
-  const products = [
-  
-    {
+  const location = useLocation();
+  const [filteredProducts, setFilteredProducts] = useState([]);
+  const products = [{
       id: 1,
       name: "Lunettes de vue Classique",
       description: "Des lunettes de vue élégantes et intemporelles, parfaites pour un usage quotidien. Disponibles en plusieurs coloris.",
@@ -88,6 +89,19 @@ export default function ProductGrid() {
     }
   ];
 
+  useEffect(() => {
+    const query = new URLSearchParams(location.search).get('q');
+    if (query) {
+      setFilteredProducts(
+        products.filter((product) =>
+          product.name.toLowerCase().includes(query.toLowerCase())
+        )
+      );
+    } else {
+      setFilteredProducts(products);
+    }
+  }, [location.search]);
+
   return (
     <div className="py-16 bg-white">
       <div className="container mx-auto px-4">
@@ -101,7 +115,7 @@ export default function ProductGrid() {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-          {products.map((product) => (
+          {filteredProducts.map((product) => (
             <div key={product.id} className="group">
               <div className="relative mb-4">
                 <img
