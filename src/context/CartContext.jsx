@@ -33,14 +33,21 @@ export const CartProvider = ({ children }) => {
     }
   };
 
+  // const toggleFavorite = (product) => {
+  //   if (favorites.some(fav => fav.id === product.id)) {
+  //     setFavorites(favorites.filter(fav => fav.id !== product.id));
+  //   } else {
+  //     setFavorites([...favorites, product]);
+  //   }
+  // };
   const toggleFavorite = (product) => {
     if (favorites.some(fav => fav.id === product.id)) {
-      setFavorites(favorites.filter(fav => fav.id !== product.id));
+      setFavorites(favorites.filter(fav => fav.id !== product.id)); // Retire le produit des favoris
     } else {
-      setFavorites([...favorites, product]);
+      setFavorites([...favorites, product]); // Ajoute le produit aux favoris
     }
   };
-
+  
   return (
     <CartContext.Provider value={{ cart, favorites, addToCart, removeFromCart, updateQuantity, toggleFavorite }}>
       {children}

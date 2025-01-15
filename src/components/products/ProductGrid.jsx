@@ -7,6 +7,7 @@ export default function ProductGrid() {
   const { addToCart, toggleFavorite, favorites } = useContext(CartContext);
   const location = useLocation();
   const [filteredProducts, setFilteredProducts] = useState([]);
+
   const products = [{
       id: 1,
       name: "Lunettes de vue Classique",
@@ -136,11 +137,17 @@ export default function ProductGrid() {
                 <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors" />
                 <button
                   onClick={() => toggleFavorite(product)}
-                  className="absolute top-4 right-4 p-2 bg-white rounded-full shadow"
+                  className={`absolute top-4 right-4 p-2 rounded-full shadow hover:scale-105 transition-transform ${
+                    favorites.some(fav => fav.id === product.id)
+                      ? 'bg-green-800' // Fond vert si le produit est favori
+                      : 'bg-white' // Fond blanc par défaut
+                  }`}
                 >
                   <Heart
                     className={`w-5 h-5 ${
-                      favorites.some(fav => fav.id === product.id) ? 'text-red-500' : 'text-gray-500'
+                      favorites.some(fav => fav.id === product.id)
+                        ? 'text-white' // Icône blanche si le produit est favori
+                        : 'text-gray-500' // Icône grise par défaut
                     }`}
                   />
                 </button>

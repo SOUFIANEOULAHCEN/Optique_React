@@ -14,6 +14,7 @@ import Blog from './components/pages/Blog';
 import Contact from './components/pages/Contact';
 import Features from './components/pages/Features';
 import Shop from './components/pages/Shop';
+import Favorites from './components/pages/Favorites';
 
 export default function App() {
   return (
@@ -23,16 +24,18 @@ export default function App() {
           <Header />
           <main className="flex-1">
             <Routes>
-              <Route
-                path="/"
-                element={
-                  <>
-                    <Hero />
-                    <Categories />
-                    <ProductGrid />
-                  </>
-                }
-              />
+            <Route
+  path="/"
+  element={
+    <>
+      <Hero />
+      <Categories />
+      <div id="product-grid"> {/* Ajoutez un ID ici */}
+        <ProductGrid />
+      </div>
+    </>
+  }
+/>
               <Route path="/:category" element={<CategoryPage />} />
               <Route path="/panier" element={<Cart />} />
               <Route path="/checkout" element={<Checkout />} />
@@ -42,6 +45,7 @@ export default function App() {
               <Route path="/caracteristiques" element={<Features />} />
               <Route path="/boutique" element={<Shop />} />
               <Route path="/search" element={<ProductGrid />} /> {/* Route pour la recherche */}
+              <Route path="/favorites" element={<Favorites />} />
             </Routes>
           </main>
           <Footer />
