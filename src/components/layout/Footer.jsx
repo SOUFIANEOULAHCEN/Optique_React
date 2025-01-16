@@ -39,15 +39,15 @@ export default function Footer() {
             <ul className="space-y-4 text-sm text-gray-600">
               <li className="flex items-center gap-2">
                 <MapPin className="w-4 h-4 text-emerald-900" />
-                123 Rue , xxxxxxx , tarmigt , ouarzazate
+                Route nationale N9 devant le marché quotidien de tarmigt
               </li>
               <li className="flex items-center gap-2">
                 <Phone className="w-4 h-4 text-emerald-900" />
-                +212 624 193 209
+                +212 62 377 599
               </li>
               <li className="flex items-center gap-2">
                 <Mail className="w-4 h-4 text-emerald-900" />
-                contact@optiquenouria.com
+                nouriaoptique@gmail.com
               </li>
             </ul>
           </div>

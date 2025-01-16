@@ -26,17 +26,13 @@ export default function Header() {
         {/* Première section : Informations de contact et sélecteurs de langue/devise */}
         <div className="hidden md:flex justify-between items-center py-2 text-sm border-b">
           <div className="flex items-center gap-4">
-            <span>Appelez-nous: +33 1 23 45 67 89</span>
-            <span>Email: contact@boutiquelunettes.fr</span>
+            <span>Appelez-nous: +212 62 377 599</span>
+            <span>Email: nouriaoptique@gmail.com</span>
           </div>
           <div className="flex items-center gap-4">
             <select className="bg-transparent">
-              <option>EUR</option>
-              <option>USD</option>
-            </select>
-            <select className="bg-transparent">
               <option>Français</option>
-              <option>English</option>
+              <option>Arabe</option>
             </select>
             <Link to="/connexion">Connexion</Link>
           </div>
