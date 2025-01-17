@@ -1,12 +1,12 @@
 import React, { useContext, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import { ShoppingCart, Search, Menu, Heart } from 'lucide-react'; // Ajoutez l'icône Heart pour les favoris
+import { ShoppingCart, Search, Menu, Heart } from 'lucide-react';
 import { CartContext } from '../../context/CartContext';
 
 export default function Header() {
   const { cart } = useContext(CartContext);
   const [searchTerm, setSearchTerm] = useState('');
-  const [isMenuOpen, setIsMenuOpen] = useState(false); // État pour gérer l'ouverture du menu
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
   const navigate = useNavigate();
 
   const handleSearch = (e) => {
@@ -23,7 +23,7 @@ export default function Header() {
   return (
     <header className="bg-white border-b">
       <div className="container mx-auto px-4">
-        {/* Première section : Informations de contact et sélecteurs de langue/devise */}
+        {/* Top Section: Contact Info and Language/Currency Selectors */}
         <div className="hidden md:flex justify-between items-center py-2 text-sm border-b">
           <div className="flex items-center gap-4">
             <span>Appelez-nous: +212 62 377 599</span>
@@ -38,18 +38,18 @@ export default function Header() {
           </div>
         </div>
 
-        {/* Deuxième section : Logo, navigation et panier */}
+        {/* Main Section: Logo, Navigation, and Cart */}
         <div className="flex items-center justify-between py-4">
           <Link to="/" className="text-2xl font-bold text-emerald-900">
             OPTIQUE NOURIA
           </Link>
 
-          {/* Menu Hamburger pour mobile */}
+          {/* Hamburger Menu for Mobile */}
           <button onClick={toggleMenu} className="md:hidden p-2">
             <Menu className="w-6 h-6" />
           </button>
 
-          {/* Navigation pour desktop */}
+          {/* Navigation for Desktop */}
           <nav className="hidden md:flex items-center gap-6">
             <Link to="/" className="hover:text-amber-500">ACCUEIL</Link>
             <Link to="/boutique" className="hover:text-amber-500">BOUTIQUE</Link>
@@ -60,7 +60,7 @@ export default function Header() {
           </nav>
 
           <div className="flex items-center gap-4">
-            {/* Formulaire de recherche (masqué sur mobile) */}
+            {/* Search Form (Hidden on Mobile) */}
             <form onSubmit={handleSearch} className="hidden sm:flex items-center">
               <input
                 type="text"
@@ -74,12 +74,12 @@ export default function Header() {
               </button>
             </form>
 
-            {/* Icône des favoris */}
+            {/* Favorites Icon */}
             <Link to="/favorites" className="p-2 hover:text-amber-500">
               <Heart className="w-5 h-5" />
             </Link>
 
-            {/* Panier */}
+            {/* Cart Icon */}
             <Link to="/panier" className="p-2 hover:text-amber-500 relative">
               <ShoppingCart className="w-5 h-5" />
               <span className="absolute -top-1 -right-1 bg-amber-500 text-white text-xs rounded-full w-4 h-4 flex items-center justify-center">
@@ -89,7 +89,7 @@ export default function Header() {
           </div>
         </div>
 
-        {/* Navigation pour mobile */}
+        {/* Mobile Navigation Menu */}
         {isMenuOpen && (
           <nav className="md:hidden flex flex-col items-center gap-4 py-4 border-t">
             <Link to="/" className="hover:text-amber-500">ACCUEIL</Link>

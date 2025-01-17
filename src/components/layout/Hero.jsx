@@ -9,24 +9,28 @@ import { Autoplay, Pagination, EffectFade } from 'swiper/modules';
 export default function Hero() {
   const navigate = useNavigate(); // Utilisez useNavigate pour la redirection
 
-  // Tableau d'objets contenant les images et leurs titres
+  // Tableau d'objets contenant les nouvelles images et leurs titres
   const slides = [
     {
-      image: 'https://images.unsplash.com/photo-1612817159949-195b6eb9e31a?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80',
-      imageMobile: 'https://images.unsplash.com/photo-1612817159949-195b6eb9e31a?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80',
-      title: 'Collection Printemps 2023',
+      image: 'https://images.unsplash.com/photo-1590860363253-19a9c4c3e5a0?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwzNjUyOXwwfDF8c2VhcmNofDEyfHxnbGFzc2V8ZW58MHx8fHwxNjgyNTQ1MzM0&ixlib=rb-1.2.1&q=80&w=1080',
+      imageMobile: 'https://via.placeholder.com/800x600?text=Glasses+Spring+2023+Mobile',
+      title: 'Collection Printemps 2023 - Glasses',
     },
     {
-      image: 'https://images.unsplash.com/photo-1591076482161-42ce6da69f67?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80',
-      imageMobile: 'https://images.unsplash.com/photo-1591076482161-42ce6da69f67?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80',
+      image: 'https://images.unsplash.com/photo-1603052875468-3e6b8f1a7c6f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwzNjUyOXwwfDF8c2VhcmNofDIyfHxnbGFzc2VzJTIwZm9yJTIwd29tZW58ZW58MHx8fHwxNjgyNTQ1MzM0&ixlib=rb-1.2.1&q=80&w=1080',
+      imageMobile: 'https://via.placeholder.com/800x600?text=Elegant+Glasses+Mobile',
       title: 'Lunettes Élégantes pour Femmes',
     },
     {
-      image: 'https://images.unsplash.com/photo-1612817158486-7f0a7d0b8b8a?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80',
-      imageMobile: 'https://images.unsplash.com/photo-1612817158486-7f0a7d0b8b8a?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80',
-      title: 'Styles Modernes pour Hommes',
+      image: 'https://images.unsplash.com/photo-1615932247977-0c4b4e9a2b66?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwzNjUyOXwwfDF8c2VhcmNofDF8fG1vZGVybiUyMGdsYXNzZXN8ZW58MHx8fHwxNjgyNTQ1MzM0&ixlib=rb-1.2.1&q=80&w=1080',
+      imageMobile: 'https://via.placeholder.com/800x600?text=Modern+Styles+Mobile',
+      title: 'Styles Modernes pour Hommes - Glasses',
     },
   ];
+  
+  
+  
+
 
   // Fonction pour rediriger vers la liste des produits et faire défiler la page
   const handleBuyNow = () => {

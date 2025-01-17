@@ -2,93 +2,12 @@ import React, { useContext, useEffect, useState } from 'react';
 import { CartContext } from '../../context/CartContext';
 import { Heart } from 'lucide-react';
 import { useLocation } from 'react-router-dom';
+import { products } from '../data/products.js';
 
 export default function ProductGrid() {
   const { addToCart, toggleFavorite, favorites } = useContext(CartContext);
   const location = useLocation();
   const [filteredProducts, setFilteredProducts] = useState([]);
-
-  const products = [{
-      id: 1,
-      name: "Lunettes de vue Classique",
-      description: "Des lunettes de vue élégantes et intemporelles, parfaites pour un usage quotidien. Disponibles en plusieurs coloris.",
-      price: 120,
-      image: "https://images.unsplash.com/photo-1591076482161-42ce6da69f67?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60",
-      category: "Lunettes de Vue"
-    },
-    {
-      id: 2,
-      name: "Lunettes de soleil Aviator",
-      description: "Lunettes de soleil style aviateur avec verres polarisés pour une protection optimale contre les UV.",
-      price: 150,
-      image: "https://images.unsplash.com/photo-1591076482161-42ce6da69f67?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60",
-      category: "Lunettes de Soleil"
-    },
-    {
-      id: 3,
-      name: "Lunettes de vue Modern",
-      description: "Un design moderne et épuré pour ces lunettes de vue, parfaites pour les amateurs de style contemporain.",
-      price: 140,
-      image: "https://images.unsplash.com/photo-1591076482161-42ce6da69f67?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60",
-      category: "Lunettes de Vue"
-    },
-    {
-      id: 4,
-      name: "Lunettes de soleil Ronde",
-      description: "Lunettes de soleil rondes avec un look rétro, idéales pour un style unique et tendance.",
-      price: 130,
-      image: "https://images.unsplash.com/photo-1591076482161-42ce6da69f67?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60",
-      category: "Lunettes de Soleil"
-    },
-    {
-      id: 5,
-      name: "Lunettes de sport Performance",
-      description: "Lunettes de sport légères et résistantes, conçues pour les activités intenses et les amateurs de plein air.",
-      price: 90,
-      image: "https://images.unsplash.com/photo-1591076482161-42ce6da69f67?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60",
-      category: "Lunettes de Sport"
-    },
-    {
-      id: 6,
-      name: "Lunettes de vue Minimaliste",
-      description: "Lunettes de vue au design minimaliste, légères et discrètes, parfaites pour un style épuré.",
-      price: 100,
-      image: "https://images.unsplash.com/photo-1612817159949-195b6eb9e31a?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60",
-      category: "Lunettes de Vue"
-    },
-    {
-      id: 7,
-      name: "Lunettes de soleil Sport",
-      description: "Lunettes de soleil spécialement conçues pour les sports de plein air, offrant une protection maximale contre les UV.",
-      price: 110,
-      image: "https://images.unsplash.com/photo-1591076482161-42ce6da69f67?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60",
-      category: "Lunettes de Sport"
-    },
-    {
-      id: 8,
-      name: "Lunettes de vue Vintage",
-      description: "Lunettes de vue au style vintage, parfaites pour ceux qui aiment les designs rétro et élégants.",
-      price: 160,
-      image: "https://images.unsplash.com/photo-1612817159949-195b6eb9e31a?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60",
-      category: "Lunettes de Vue"
-    },
-    {
-      id: 9,
-      name: "Lunettes de soleil Mirroir",
-      description: "Lunettes de soleil à verres miroir, offrant un style moderne et une protection optimale contre les reflets.",
-      price: 170,
-      image: "https://images.unsplash.com/photo-1591076482161-42ce6da69f67?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60",
-      category: "Lunettes de Soleil"
-    },
-    {
-      id: 10,
-      name: "Lunettes de sport Cyclisme",
-      description: "Lunettes de sport spécialement conçues pour le cyclisme, avec une protection contre le vent et les UV.",
-      price: 95,
-      image: "https://images.unsplash.com/photo-1591076482161-42ce6da69f67?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60",
-      category: "Lunettes de Sport"
-    }
-  ];
 
   useEffect(() => {
     const query = new URLSearchParams(location.search).get('q');
@@ -118,36 +37,37 @@ export default function ProductGrid() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {filteredProducts.map((product) => (
             <div key={product.id} className="group">
-              <div className="relative mb-4">
+              <div className="relative mb-4 aspect-[4/3] bg-gray-100 rounded-lg overflow-hidden">
                 <img
-                  src={product.image}
+                  src={product.image || "/placeholder.svg"}
                   alt={product.name}
-                  className="w-full h-auto"
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                  loading="lazy"
                 />
                 {product.isNew && (
-                  <span className="absolute top-4 left-4 bg-emerald-900 text-white px-2 py-1 text-sm">
+                  <span className="absolute top-4 left-4 bg-emerald-900 text-white px-2 py-1 text-sm z-10">
                     NOUVEAU
                   </span>
                 )}
                 {product.isSale && (
-                  <span className="absolute top-4 left-4 bg-amber-500 text-white px-2 py-1 text-sm">
+                  <span className="absolute top-4 left-4 bg-amber-500 text-white px-2 py-1 text-sm z-10">
                     SOLDES
                   </span>
                 )}
                 <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors" />
                 <button
                   onClick={() => toggleFavorite(product)}
-                  className={`absolute top-4 right-4 p-2 rounded-full shadow hover:scale-105 transition-transform ${
+                  className={`absolute top-4 right-4 p-2 rounded-full shadow hover:scale-105 transition-transform z-10 ${
                     favorites.some(fav => fav.id === product.id)
-                      ? 'bg-green-800' // Fond vert si le produit est favori
-                      : 'bg-white' // Fond blanc par défaut
+                      ? 'bg-green-800'
+                      : 'bg-white'
                   }`}
                 >
                   <Heart
                     className={`w-5 h-5 ${
                       favorites.some(fav => fav.id === product.id)
-                        ? 'text-white' // Icône blanche si le produit est favori
-                        : 'text-gray-500' // Icône grise par défaut
+                        ? 'text-white'
+                        : 'text-gray-500'
                     }`}
                   />
                 </button>
@@ -159,7 +79,7 @@ export default function ProductGrid() {
                 </span>
                 <button
                   onClick={() => addToCart(product)}
-                  className="text-sm text-white bg-emerald-900 px-4 py-2 hover:bg-amber-500 transition-colors"
+                  className="text-sm text-white bg-emerald-900 px-4 py-2 hover:bg-amber-500 transition-colors rounded"
                 >
                   AJOUTER AU PANIER
                 </button>
