@@ -1,13 +1,14 @@
-// src/components/layout/Header.jsx
 import React, { useContext, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import { ShoppingCart, Search, Menu, Heart, Moon, Sun } from 'lucide-react';
+import { ShoppingCart, Search, Menu, Heart, Moon, Sun, User } from 'lucide-react'; // Ajoutez l'icône User
 import { CartContext } from '../../context/CartContext';
 import { useTheme } from '../../context/ThemeContext';
+import { useAuth } from '../../context/AuthContext'; // Importez useAuth pour accéder au profil
 
 export default function Header() {
   const { cart } = useContext(CartContext);
   const { isDarkMode, toggleTheme } = useTheme();
+  const { user } = useAuth(); // Utilisez useAuth pour accéder à l'utilisateur
   const [searchTerm, setSearchTerm] = useState('');
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const navigate = useNavigate();
@@ -45,7 +46,7 @@ export default function Header() {
 
         {/* Main Section: Logo, Navigation, and Cart */}
         <div className="flex items-center justify-between py-4">
-          <Link to="/" className="text-2xl font-bold text-emerald-900">
+          <Link to="/" className="text-2xl font-bold text-emerald-900 dark:text-gray-100">
             OPTIQUE NOURIA
           </Link>
 
@@ -54,7 +55,7 @@ export default function Header() {
             <Menu className="w-6 h-6" />
           </button>
 
-          {/* Navigation for Desktop */}
+          {/* Navigation for Desktop and Tablets */}
           <nav className="hidden md:flex items-center gap-6">
             <Link to="/" className="hover:text-amber-500">ACCUEIL</Link>
             <Link to="/boutique" className="hover:text-amber-500">BOUTIQUE</Link>
@@ -90,6 +91,11 @@ export default function Header() {
               <span className="absolute -top-1 -right-1 bg-amber-500 text-white text-xs rounded-full w-4 h-4 flex items-center justify-center">
                 {cart.length}
               </span>
+            </Link>
+
+            {/* Profile Icon */}
+            <Link to="/profil" className="p-2 hover:text-amber-500">
+              <User className="w-5 h-5" /> {/* Icône pour accéder au profil */}
             </Link>
 
             {/* Dark Mode Toggle */}

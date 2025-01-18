@@ -11,11 +11,9 @@ export default function Register() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Simuler une inscription réussie
     register({ email });
-    navigate('/');
+    navigate('/profil'); // Rediriger vers la page de profil
   };
-
   return (
     <div className="min-h-screen bg-gray-100 py-12">
       <div className="container mx-auto px-4">
