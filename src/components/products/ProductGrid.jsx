@@ -3,11 +3,13 @@ import { CartContext } from '../../context/CartContext';
 import { Heart } from 'lucide-react';
 import { useLocation } from 'react-router-dom';
 import { products } from '../data/products.js';
+import { useTheme } from '../../context/ThemeContext';
 
 export default function ProductGrid() {
   const { addToCart, toggleFavorite, favorites } = useContext(CartContext);
   const location = useLocation();
   const [filteredProducts, setFilteredProducts] = useState([]);
+  const { isDarkMode } = useTheme();
 
   useEffect(() => {
     const query = new URLSearchParams(location.search).get('q');
@@ -23,7 +25,7 @@ export default function ProductGrid() {
   }, [location.search]);
 
   return (
-    <div className="py-16 bg-white">
+    <div className="py-16 ${isDarkMode ? 'bg-gray-800 text-white' : 'bg-white text-gray-900'}`">
       <div className="container mx-auto px-4">
         <div className="text-center mb-12">
           <h2 className="text-3xl font-bold mb-4">DÉCOUVREZ NOS PRODUITS</h2>

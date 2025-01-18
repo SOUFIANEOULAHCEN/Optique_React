@@ -1,10 +1,13 @@
+// src/components/layout/Header.jsx
 import React, { useContext, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import { ShoppingCart, Search, Menu, Heart } from 'lucide-react';
+import { ShoppingCart, Search, Menu, Heart, Moon, Sun } from 'lucide-react';
 import { CartContext } from '../../context/CartContext';
+import { useTheme } from '../../context/ThemeContext';
 
 export default function Header() {
   const { cart } = useContext(CartContext);
+  const { isDarkMode, toggleTheme } = useTheme();
   const [searchTerm, setSearchTerm] = useState('');
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const navigate = useNavigate();
@@ -21,7 +24,7 @@ export default function Header() {
   };
 
   return (
-    <header className="bg-white border-b">
+    <header className={`${isDarkMode ? 'bg-gray-900 text-white' : 'bg-white text-gray-900'} border-b`}>
       <div className="container mx-auto px-4">
         {/* Top Section: Contact Info and Language/Currency Selectors */}
         <div className="hidden md:flex justify-between items-center py-2 text-sm border-b">
@@ -30,11 +33,13 @@ export default function Header() {
             <span>Email: nouriaoptique@gmail.com</span>
           </div>
           <div className="flex items-center gap-4">
-            <select className="bg-transparent">
+            <select className={`bg-transparent ${isDarkMode ? 'text-white' : 'text-gray-900'}`}>
               <option>Français</option>
               <option>Arabe</option>
             </select>
-            <Link to="/connexion">Connexion</Link>
+            <Link to="/connexion" className={`${isDarkMode ? 'text-white' : 'text-gray-900'}`}>
+              Connexion
+            </Link>
           </div>
         </div>
 
@@ -67,7 +72,7 @@ export default function Header() {
                 placeholder="Rechercher..."
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
-                className="border p-2 rounded-l"
+                className={`border p-2 rounded-l ${isDarkMode ? 'bg-gray-800 text-white' : 'bg-white text-gray-900'}`}
               />
               <button type="submit" className="p-2 bg-emerald-900 text-white rounded-r hover:bg-amber-500">
                 <Search className="w-5 h-5" />
@@ -86,6 +91,11 @@ export default function Header() {
                 {cart.length}
               </span>
             </Link>
+
+            {/* Dark Mode Toggle */}
+            <button onClick={toggleTheme} className="p-2 hover:text-amber-500">
+              {isDarkMode ? <Sun className="w-5 h-5" /> : <Moon className="w-5 h-5" />}
+            </button>
           </div>
         </div>
 
