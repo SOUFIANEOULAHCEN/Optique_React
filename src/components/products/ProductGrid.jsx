@@ -4,6 +4,7 @@ import { Heart } from 'lucide-react';
 import { useLocation } from 'react-router-dom';
 import { products } from '../data/products.js';
 import { useTheme } from '../../context/ThemeContext';
+import { motion } from 'framer-motion'; // Importez motion depuis framer-motion
 
 export default function ProductGrid() {
   const { addToCart, toggleFavorite, favorites } = useContext(CartContext);
@@ -24,8 +25,14 @@ export default function ProductGrid() {
     }
   }, [location.search]);
 
+  // Animation pour les produits
+  const productVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: { opacity: 1, y: 0 },
+  };
+
   return (
-    <div className="py-16 ${isDarkMode ? 'bg-gray-800 text-white' : 'bg-white text-gray-900'}`">
+    <div className={`py-16 ${isDarkMode ? 'bg-gray-800 text-white' : 'bg-white text-gray-900'}`}>
       <div className="container mx-auto px-4">
         <div className="text-center mb-12">
           <h2 className="text-3xl font-bold mb-4">DÉCOUVREZ NOS PRODUITS</h2>
@@ -37,8 +44,15 @@ export default function ProductGrid() {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-          {filteredProducts.map((product) => (
-            <div key={product.id} className="group">
+          {filteredProducts.map((product, index) => (
+            <motion.div
+              key={product.id}
+              variants={productVariants}
+              initial="hidden"
+              animate="visible"
+              transition={{ delay: index * 0.1, duration: 0.5 }}
+              className="group"
+            >
               <div className="relative mb-4 aspect-[4/3] bg-gray-100 rounded-lg overflow-hidden">
                 <img
                   src={product.image || "/placeholder.svg"}
@@ -86,7 +100,7 @@ export default function ProductGrid() {
                   AJOUTER AU PANIER
                 </button>
               </div>
-            </div>
+            </motion.div>
           ))}
         </div>
       </div>

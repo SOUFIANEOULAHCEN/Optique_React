@@ -26,11 +26,15 @@
 }
 
 .dark .text-gray-700 {
-  color: #cbd5e0; /* Texte gris clair (gray-300) pour les éléments gris foncé */
+  color: #f3f4f6; /* Texte gris clair (gray-100) pour les éléments gris foncé */
 }
 
 .dark .bg-emerald-900 {
-  background-color: #065f46; /* Couleur de fond verte (emerald-900) */
+  background-color: #ffffff; /* Couleur de fond blanche en mode sombre */
+}
+
+.dark .text-emerald-900 {
+  color: #ffffff; /* Texte blanc en mode sombre */
 }
 
 .dark .hover\:bg-amber-500:hover {

@@ -1,34 +1,72 @@
 import React from 'react';
+import { motion } from 'framer-motion'; // Importez motion depuis framer-motion
 
 export default function About() {
+  // Animation pour les sections
+  const sectionVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: { opacity: 1, y: 0 },
+  };
+
   return (
     <div className="min-h-screen bg-gray-100 py-12">
       <div className="container mx-auto px-4">
         {/* Section Titre */}
         <h1 className="text-4xl font-bold text-center mb-6">À Propos de Nous</h1>
         <p className="text-lg text-center text-gray-700 max-w-2xl mx-auto mb-12">
-          Optique Nouria est une entreprise passionnée par la mode et la santé visuelle. 
-          Nous offrons une large gamme de lunettes de vue, de soleil et de sport pour répondre à tous vos besoins.
+          Bienvenue sur Optique Noria, votre site dédié à la présentation de nos produits et services dans le domaine de l'optique.
         </p>
 
-        {/* Section Notre Histoire */}
-        <div className="bg-white p-8 rounded-lg shadow-lg mb-12">
-          <h2 className="text-3xl font-bold text-emerald-900 mb-4">Notre Histoire</h2>
+        {/* Section Introduction */}
+        <motion.div
+          className="bg-white p-8 rounded-lg shadow-lg mb-12"
+          variants={sectionVariants}
+          initial="hidden"
+          animate="visible"
+          transition={{ delay: 0.2, duration: 0.5 }}
+        >
+          <h2 className="text-3xl font-bold text-emerald-900 mb-4">Notre Mission</h2>
           <p className="text-gray-700 mb-4">
-            Fondée en 2010, Optique Nouria a commencé comme un petit magasin familial dans le cœur de Paris. 
-            Aujourd'hui, nous sommes fiers d'être l'une des principales enseignes d'optique en France, avec plus de 50 magasins à travers le pays.
+            Nous avons conçu cette plateforme pour vous offrir une navigation simple, fluide et agréable, tout en mettant en valeur nos solutions adaptées à vos besoins.
           </p>
           <p className="text-gray-700">
-            Notre mission est de fournir des lunettes de haute qualité, alliant style et confort, à des prix accessibles. 
-            Nous croyons que chaque personne mérite de voir le monde avec clarté et style.
+            Avec une interface moderne et organisée, vous pouvez :
           </p>
-        </div>
+          <ul className="list-disc list-inside text-gray-700 mt-4">
+            <li>Explorer notre collection de produits et découvrir nos services en détail.</li>
+            <li>Ajouter vos articles préférés à une liste de favoris pour les retrouver facilement.</li>
+            <li>Utiliser notre page de contact pour toute question ou demande d’information.</li>
+          </ul>
+        </motion.div>
+
+        {/* Section Notre Engagement */}
+        <motion.div
+          className="bg-white p-8 rounded-lg shadow-lg mb-12"
+          variants={sectionVariants}
+          initial="hidden"
+          animate="visible"
+          transition={{ delay: 0.4, duration: 0.5 }}
+        >
+          <h2 className="text-3xl font-bold text-emerald-900 mb-4">Notre Engagement</h2>
+          <p className="text-gray-700 mb-4">
+            Notre mission est de vous permettre de découvrir nos offres en toute simplicité, tout en reflétant notre engagement envers la qualité et la satisfaction de nos clients.
+          </p>
+          <p className="text-gray-700">
+            Merci de nous faire confiance et bienvenue dans l’univers d’Optique Noria.
+          </p>
+        </motion.div>
 
         {/* Section Notre Équipe */}
-        <div className="bg-white p-8 rounded-lg shadow-lg mb-12">
+        <motion.div
+          className="bg-white p-8 rounded-lg shadow-lg mb-12"
+          variants={sectionVariants}
+          initial="hidden"
+          animate="visible"
+          transition={{ delay: 0.6, duration: 0.5 }}
+        >
           <h2 className="text-3xl font-bold text-emerald-900 mb-4">Notre Équipe</h2>
           <p className="text-gray-700 mb-4">
-            Notre équipe est composée de professionnels passionnés, allant des opticiens certifiés aux designers de montures. 
+            Notre équipe est composée de professionnels passionnés, allant des opticiens certifiés aux designers de montures.
             Chaque membre de notre équipe partage une passion commune pour la santé visuelle et la mode.
           </p>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
@@ -60,10 +98,16 @@ export default function About() {
               <p className="text-gray-600">Responsable Clientèle</p>
             </div>
           </div>
-        </div>
+        </motion.div>
 
         {/* Section Nos Valeurs */}
-        <div className="bg-white p-8 rounded-lg shadow-lg mb-12">
+        <motion.div
+          className="bg-white p-8 rounded-lg shadow-lg"
+          variants={sectionVariants}
+          initial="hidden"
+          animate="visible"
+          transition={{ delay: 0.8, duration: 0.5 }}
+        >
           <h2 className="text-3xl font-bold text-emerald-900 mb-4">Nos Valeurs</h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             <div className="text-center">
@@ -85,30 +129,7 @@ export default function About() {
               </p>
             </div>
           </div>
-        </div>
-
-        {/* Section Engagement Environnemental */}
-        <div className="bg-white p-8 rounded-lg shadow-lg">
-          <h2 className="text-3xl font-bold text-emerald-900 mb-4">Engagement Environnemental</h2>
-          <p className="text-gray-700 mb-4">
-            Chez Optique Nouria, nous croyons en un avenir durable. C'est pourquoi nous nous engageons à réduire notre impact environnemental 
-            en utilisant des matériaux recyclés et en soutenant des initiatives écologiques.
-          </p>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <div>
-              <h3 className="text-xl font-semibold mb-2">Matériaux Recyclés</h3>
-              <p className="text-gray-700">
-                Toutes nos montures sont fabriquées à partir de matériaux recyclés ou biodégradables.
-              </p>
-            </div>
-            <div>
-              <h3 className="text-xl font-semibold mb-2">Initiatives Écologiques</h3>
-              <p className="text-gray-700">
-                Nous soutenons des projets de reforestation et de protection des océans à travers le monde.
-              </p>
-            </div>
-          </div>
-        </div>
+        </motion.div>
       </div>
     </div>
   );

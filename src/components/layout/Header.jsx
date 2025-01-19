@@ -50,13 +50,13 @@ export default function Header() {
             OPTIQUE NOURIA
           </Link>
 
-          {/* Hamburger Menu for Mobile */}
+          {/* Hamburger Menu for Mobile and Tablet */}
           <button onClick={toggleMenu} className="md:hidden p-2">
             <Menu className="w-6 h-6" />
           </button>
 
-          {/* Navigation for Desktop and Tablets */}
-          <nav className="hidden md:flex items-center gap-6">
+          {/* Navigation for Desktop, Tablet, and Mobile */}
+          <nav className="hidden lg:flex items-center gap-6">
             <Link to="/" className="hover:text-amber-500">ACCUEIL</Link>
             <Link to="/boutique" className="hover:text-amber-500">BOUTIQUE</Link>
             <Link to="/caracteristiques" className="hover:text-amber-500">CARACTÉRISTIQUES</Link>
@@ -66,7 +66,7 @@ export default function Header() {
           </nav>
 
           <div className="flex items-center gap-4">
-            {/* Search Form (Hidden on Mobile) */}
+            {/* Search Form (Hidden on Mobile and Tablet) */}
             <form onSubmit={handleSearch} className="hidden sm:flex items-center">
               <input
                 type="text"
@@ -105,7 +105,7 @@ export default function Header() {
           </div>
         </div>
 
-        {/* Mobile Navigation Menu */}
+        {/* Mobile and Tablet Navigation Menu */}
         {isMenuOpen && (
           <nav className="md:hidden flex flex-col items-center gap-4 py-4 border-t">
             <Link to="/" className="hover:text-amber-500">ACCUEIL</Link>
@@ -120,3 +120,16 @@ export default function Header() {
     </header>
   );
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
