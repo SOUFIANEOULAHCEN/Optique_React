@@ -78,6 +78,14 @@ export const products = [
       price: 95,
       image: "https://images.pexels.com/photos/5807576/pexels-photo-5807576.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
       category: "Lunettes de Sport"
+    },
+    {
+      id: 11,
+      name: "Lunettes de sport Cyclisme",
+      description: "Lunettes de sport spécialement conçues pour le cyclisme, avec une protection contre le vent et les UV.",
+      price: 95,
+      image: "",
+      category: "Lunettes de Sport"
     }
   ];
   

@@ -5,27 +5,28 @@ import 'swiper/css';
 import 'swiper/css/pagination';
 import 'swiper/css/effect-fade';
 import { Autoplay, Pagination, EffectFade } from 'swiper/modules';
-import { motion } from 'framer-motion'; // Importez motion depuis framer-motion
+import { motion } from 'framer-motion';
 
 export default function Hero() {
   const navigate = useNavigate();
 
   const slides = [
     {
-      image: 'https://images.unsplash.com/photo-1590860363253-19a9c4c3e5a0?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwzNjUyOXwwfDF8c2VhcmNofDEyfHxnbGFzc2V8ZW58MHx8fHwxNjgyNTQ1MzM0&ixlib=rb-1.2.1&q=80&w=1080',
-      imageMobile: 'https://via.placeholder.com/800x600?text=Glasses+Spring+2023+Mobile',
-      title: 'Collection Printemps 2023 - Glasses',
+      image: 'https://images.pexels.com/photos/701877/pexels-photo-701877.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1', // Lunettes de vue
+      imageMobile: 'https://images.pexels.com/photos/701877/pexels-photo-701877.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&dpr=1', // Version mobile
+      title: 'Collection Printemps 2024 - Lunettes de Vue',
     },
     {
-      image: 'https://images.unsplash.com/photo-1603052875468-3e6b8f1a7c6f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwzNjUyOXwwfDF8c2VhcmNofDIyfHxnbGFzc2VzJTIwZm9yJTIwd29tZW58ZW58MHx8fHwxNjgyNTQ1MzM0&ixlib=rb-1.2.1&q=80&w=1080',
-      imageMobile: 'https://via.placeholder.com/800x600?text=Elegant+Glasses+Mobile',
-      title: 'Lunettes Élégantes pour Femmes',
-    },
-    {
-      image: 'https://images.unsplash.com/photo-1615932247977-0c4b4e9a2b66?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwzNjUyOXwwfDF8c2VhcmNofDF8fG1vZGVybiUyMGdsYXNzZXN8ZW58MHx8fHwxNjgyNTQ1MzM0&ixlib=rb-1.2.1&q=80&w=1080',
-      imageMobile: 'https://via.placeholder.com/800x600?text=Modern+Styles+Mobile',
-      title: 'Styles Modernes pour Hommes - Glasses',
-    },
+      image: 'https://images.pexels.com/photos/2765872/pexels-photo-2765872.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1', // Lunettes de soleil
+      imageMobile: 'https://images.pexels.com/photos/2765872/pexels-photo-2765872.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&dpr=1', // Version mobile
+      title: 'Lunettes de Soleil Élégantes',
+    }
+    ,
+    // {
+    //   image: 'https://images.pexels.com/photos/3522526/pexels-photo-3522526.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1', // Lunettes de sport
+    //   imageMobile: 'https://images.pexels.com/photos/3522526/pexels-photo-3522526.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&dpr=1', // Version mobile
+    //   title: 'Lunettes de Sport Performantes',
+    // },
   ];
 
   const handleBuyNow = () => {

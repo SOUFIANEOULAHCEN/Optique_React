@@ -116,7 +116,6 @@ export default function ProductGrid() {
             </motion.div>
           ))}
         </div>
-
         {/* Pagination */}
         <div className="flex justify-center mt-8">
           <div className="flex space-x-2">
