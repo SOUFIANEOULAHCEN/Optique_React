@@ -4,13 +4,15 @@ import { Heart } from 'lucide-react';
 import { useLocation } from 'react-router-dom';
 import { products } from '../data/products.js';
 import { useTheme } from '../../context/ThemeContext';
-import { motion } from 'framer-motion'; // Importez motion depuis framer-motion
+import { motion } from 'framer-motion';
 
 export default function ProductGrid() {
   const { addToCart, toggleFavorite, favorites } = useContext(CartContext);
   const location = useLocation();
   const [filteredProducts, setFilteredProducts] = useState([]);
   const { isDarkMode } = useTheme();
+  const [currentPage, setCurrentPage] = useState(1); // État pour la page actuelle
+  const productsPerPage = 8; // Nombre de produits par page
 
   useEffect(() => {
     const query = new URLSearchParams(location.search).get('q');
@@ -24,6 +26,17 @@ export default function ProductGrid() {
       setFilteredProducts(products);
     }
   }, [location.search]);
+
+  // Calcul des produits à afficher pour la page actuelle
+  const indexOfLastProduct = currentPage * productsPerPage;
+  const indexOfFirstProduct = indexOfLastProduct - productsPerPage;
+  const currentProducts = filteredProducts.slice(indexOfFirstProduct, indexOfLastProduct);
+
+  // Nombre total de pages
+  const totalPages = Math.ceil(filteredProducts.length / productsPerPage);
+
+  // Fonction pour changer de page
+  const paginate = (pageNumber) => setCurrentPage(pageNumber);
 
   // Animation pour les produits
   const productVariants = {
@@ -44,7 +57,7 @@ export default function ProductGrid() {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-          {filteredProducts.map((product, index) => (
+          {currentProducts.map((product, index) => (
             <motion.div
               key={product.id}
               variants={productVariants}
@@ -102,6 +115,25 @@ export default function ProductGrid() {
               </div>
             </motion.div>
           ))}
+        </div>
+
+        {/* Pagination */}
+        <div className="flex justify-center mt-8">
+          <div className="flex space-x-2">
+            {Array.from({ length: totalPages }, (_, i) => (
+              <button
+                key={i + 1}
+                onClick={() => paginate(i + 1)}
+                className={`px-4 py-2 rounded ${
+                  currentPage === i + 1
+                    ? 'bg-emerald-900 text-white'
+                    : 'bg-white text-emerald-900 hover:bg-emerald-100'
+                }`}
+              >
+                {i + 1}
+              </button>
+            ))}
+          </div>
         </div>
       </div>
     </div>
