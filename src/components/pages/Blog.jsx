@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { motion } from 'framer-motion'; // Importez motion depuis framer-motion
+import React, { useState } from "react";
+import { motion } from "framer-motion"; // Importez motion depuis framer-motion
 
 export default function Blog() {
   // Données des articles de blog (simulées)
@@ -7,48 +7,60 @@ export default function Blog() {
     {
       id: 1,
       title: "Les tendances lunettes 2023",
-      description: "Découvrez les dernières tendances en matière de lunettes pour 2023, des montures audacieuses aux designs minimalistes.",
-      image: "https://images.unsplash.com/photo-1612817288484-6f916006741a?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
+      description:
+        "Découvrez les dernières tendances en matière de lunettes pour 2023, des montures audacieuses aux designs minimalistes.",
+      image:
+        "https://images.unsplash.com/photo-1612817288484-6f916006741a?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
       date: "15 octobre 2023",
       category: "Tendances",
     },
     {
       id: 2,
       title: "Comment choisir la bonne monture pour votre visage",
-      description: "Guide complet pour choisir la monture de lunettes qui correspond le mieux à la forme de votre visage.",
-      image: "https://images.unsplash.com/photo-1591076482161-42ce6da69f67?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
+      description:
+        "Guide complet pour choisir la monture de lunettes qui correspond le mieux à la forme de votre visage.",
+      image:
+        "https://images.unsplash.com/photo-1591076482161-42ce6da69f67?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
       date: "10 octobre 2023",
       category: "Conseils",
     },
     {
       id: 3,
       title: "Les avantages des verres anti-lumière bleue",
-      description: "Protégez vos yeux des écrans avec des verres anti-lumière bleue. Découvrez leurs avantages et comment ils fonctionnent.",
-      image: "https://images.unsplash.com/photo-1612817158486-7f0a7d0b8b8a?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
+      description:
+        "Protégez vos yeux des écrans avec des verres anti-lumière bleue. Découvrez leurs avantages et comment ils fonctionnent.",
+      image:
+        "https://images.unsplash.com/photo-1612817158486-7f0a7d0b8b8a?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
       date: "5 octobre 2023",
       category: "Santé",
     },
     {
       id: 4,
       title: "Lunettes de soleil : comment bien les choisir",
-      description: "Tout ce que vous devez savoir pour choisir des lunettes de soleil qui protègent vos yeux tout en restant stylées.",
-      image: "https://images.unsplash.com/photo-1612817159949-195b6eb9e31a?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
+      description:
+        "Tout ce que vous devez savoir pour choisir des lunettes de soleil qui protègent vos yeux tout en restant stylées.",
+      image:
+        "https://images.unsplash.com/photo-1612817159949-195b6eb9e31a?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
       date: "1 octobre 2023",
       category: "Conseils",
     },
     {
       id: 5,
       title: "Les lunettes de sport : un must-have pour les athlètes",
-      description: "Découvrez pourquoi les lunettes de sport sont essentielles pour les athlètes et comment choisir les bonnes.",
-      image: "https://images.unsplash.com/photo-1591076482161-42ce6da69f67?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
+      description:
+        "Découvrez pourquoi les lunettes de sport sont essentielles pour les athlètes et comment choisir les bonnes.",
+      image:
+        "https://images.unsplash.com/photo-1591076482161-42ce6da69f67?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
       date: "25 septembre 2023",
       category: "Sport",
     },
     {
       id: 6,
       title: "Les lunettes vintage : un retour en force",
-      description: "Les lunettes vintage sont de retour en force. Découvrez comment les intégrer à votre style.",
-      image: "https://images.unsplash.com/photo-1612817159949-195b6eb9e31a?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
+      description:
+        "Les lunettes vintage sont de retour en force. Découvrez comment les intégrer à votre style.",
+      image:
+        "https://images.unsplash.com/photo-1612817159949-195b6eb9e31a?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
       date: "20 septembre 2023",
       category: "Tendances",
     },
@@ -95,7 +107,8 @@ export default function Blog() {
         {/* Section Titre */}
         <h1 className="text-4xl font-bold text-center mb-6">Blog</h1>
         <p className="text-lg text-center text-gray-700 max-w-2xl mx-auto mb-12">
-          Découvrez nos articles sur les dernières tendances en matière de lunettes et de santé visuelle.
+          Découvrez nos articles sur les dernières tendances en matière de
+          lunettes et de santé visuelle.
         </p>
 
         {/* Section Catégories */}
@@ -105,8 +118,10 @@ export default function Blog() {
               setSelectedCategory(null);
               setCurrentPage(1); // Réinitialiser la pagination lors du changement de catégorie
             }}
-            className={`px-4 py-2 bg-white text-emerald-900 rounded-lg hover:bg-emerald-900 hover:text-white transition-colors ${
-              selectedCategory === null ? 'bg-emerald-900 !text-white' : ''
+            className={`px-4 py-2 rounded-lg transition-colors ${
+              selectedCategory === null
+                ? "bg-emerald-900 text-white" // Styles pour le bouton actif
+                : "bg-white text-emerald-900 hover:bg-emerald-900 hover:text-white" // Styles par défaut et au hover
             }`}
           >
             Tous
@@ -118,8 +133,10 @@ export default function Blog() {
                 setSelectedCategory(category.name);
                 setCurrentPage(1); // Réinitialiser la pagination lors du changement de catégorie
               }}
-              className={`px-4 py-2 bg-white text-emerald-900 rounded-lg hover:bg-emerald-900 hover:text-white transition-colors ${
-                selectedCategory === category.name ? 'bg-emerald-900 !text-white' : ''
+              className={`px-4 py-2 rounded-lg transition-colors ${
+                selectedCategory === category.name
+                  ? "bg-emerald-900 text-white" // Styles pour le bouton actif
+                  : "bg-white text-emerald-900 hover:bg-emerald-900 hover:text-white" // Styles par défaut et au hover
               }`}
             >
               {category.name}
@@ -144,7 +161,9 @@ export default function Blog() {
                 className="w-full h-48 object-cover"
               />
               <div className="p-6">
-                <span className="text-sm text-gray-500">{post.date} • {post.category}</span>
+                <span className="text-sm text-gray-500">
+                  {post.date} • {post.category}
+                </span>
                 <h2 className="text-xl font-bold mt-2 mb-4">{post.title}</h2>
                 <p className="text-gray-700 mb-4">{post.description}</p>
                 <button className="text-emerald-900 font-semibold hover:text-amber-500 transition-colors">
@@ -157,17 +176,25 @@ export default function Blog() {
 
         {/* Section Pagination */}
         <div className="flex justify-center mt-12">
-          {Array.from({ length: Math.ceil(filteredPosts.length / postsPerPage) }, (_, i) => (
-            <button
-              key={i + 1}
-              onClick={() => paginate(i + 1)}
-              className={`px-4 py-2 bg-white text-emerald-900 rounded-lg hover:bg-emerald-900 hover:text-white transition-colors ${
-                currentPage === i + 1 ? 'bg-emerald-900 !text-white' : ''
-              }`}
-            >
-              {i + 1}
-            </button>
-          ))}
+          {Array.from(
+            { length: Math.ceil(filteredPosts.length / postsPerPage) },
+            (_, i) => (
+              <button
+                key={i + 1}
+                onClick={() => paginate(i + 1)}
+                // className={`px-4 py-2 bg-white text-emerald-900 rounded-lg hover:bg-emerald-900 hover:text-white transition-colors ${
+                //   currentPage === i + 1 ? 'bg-emerald-900 !text-white' : ''
+                // }`}
+                className={`px-4 py-2 rounded-lg transition-colors ${
+                  currentPage === i + 1
+                    ? "bg-emerald-900 text-white" // Styles pour le bouton actif
+                    : "bg-white text-emerald-900 hover:bg-emerald-900 hover:text-white" // Styles par défaut et au hover
+                }`}
+              >
+                {i + 1}
+              </button>
+            )
+          )}
         </div>
       </div>
     </div>

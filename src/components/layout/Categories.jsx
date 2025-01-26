@@ -1,25 +1,27 @@
 import React from 'react';
 import { Link } from 'react-router-dom'; // Importez Link depuis react-router-dom
-
+import lunette_soleil_background from '../data/img/img_category/lunette_soleil_background.jpg'
+import lunette_sport_background from '../data/img/img_category/lunette_sport_background.jpg'
+import lunette_vue_background from '../data/img/img_category/lunette_vue_background.jpg'
 export default function Categories() {
 
 const categories = [
     {
       id: 1,
       name: 'Lunettes de Vue',
-      image: 'https://images.pexels.com/photos/2811087/pexels-photo-2811087.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
+      image: lunette_vue_background,
       link: '/lunettes-de-vue',
     },
     {
       id: 2,
       name: 'Lunettes de Soleil',
-      image: 'https://images.pexels.com/photos/2765872/pexels-photo-2765872.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
+      image: lunette_soleil_background,
       link: '/lunettes-de-soleil',
     },
     {
       id: 3,
       name: 'Lunettes de Sport',
-      image: 'https://images.pexels.com/photos/3522526/pexels-photo-3522526.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
+      image: lunette_sport_background,
       link: '/lunettes-de-sport',
     },
   ];

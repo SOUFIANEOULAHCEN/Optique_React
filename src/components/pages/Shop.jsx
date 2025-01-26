@@ -1,52 +1,7 @@
 import React, { useState, useContext } from 'react';
 import { CartContext } from '../../context/CartContext'; // Importez le CartContext
-
+import { products } from '../data/products'
 export default function Shop() {
-  // Données des produits (simulées)
-  const products = [
-    {
-      id: 1,
-      name: "Lunettes de vue Classique",
-      price: 120,
-      image: "https://images.unsplash.com/photo-1591076482161-42ce6da69f67?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
-      category: "Lunettes de Vue",
-    },
-    {
-      id: 2,
-      name: "Lunettes de soleil Aviator",
-      price: 150,
-      image: "https://images.unsplash.com/photo-1591076482161-42ce6da69f67?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
-      category: "Lunettes de Soleil",
-    },
-    {
-      id: 3,
-      name: "Lunettes de sport Performance",
-      price: 90,
-      image: "https://images.unsplash.com/photo-1591076482161-42ce6da69f67?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
-      category: "Lunettes de Sport",
-    },
-    {
-      id: 4,
-      name: "Lunettes de vue Minimaliste",
-      price: 100,
-      image: "https://images.unsplash.com/photo-1612817159949-195b6eb9e31a?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
-      category: "Lunettes de Vue",
-    },
-    {
-      id: 5,
-      name: "Lunettes de soleil Ronde",
-      price: 130,
-      image: "https://images.unsplash.com/photo-1591076482161-42ce6da69f67?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
-      category: "Lunettes de Soleil",
-    },
-    {
-      id: 6,
-      name: "Lunettes de sport Cyclisme",
-      price: 95,
-      image: "https://images.unsplash.com/photo-1591076482161-42ce6da69f67?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
-      category: "Lunettes de Sport",
-    },
-  ];
 
   // Catégories de produits (simulées)
   const categories = [
@@ -80,7 +35,7 @@ export default function Shop() {
         </p>
 
         {/* Section Filtres par Catégorie */}
-        <div className="flex justify-center gap-4 mb-12">
+        {/* <div className="flex justify-center gap-4 mb-12">
           {categories.map((category) => (
             <button
               key={category.id}
@@ -92,7 +47,23 @@ export default function Shop() {
               {category.name}
             </button>
           ))}
-        </div>
+        </div> */}
+
+<div className="flex justify-center gap-4 mb-12">
+  {categories.map((category) => (
+    <button
+      key={category.id}
+      onClick={() => setSelectedCategory(category.name)}
+      className={`px-4 py-2 rounded-lg transition-colors ${
+        selectedCategory === category.name
+          ? 'bg-emerald-900 text-white' // Styles pour le bouton actif
+          : 'bg-white text-emerald-900 hover:bg-emerald-900 hover:text-white' // Styles par défaut et au hover
+      }`}
+    >
+      {category.name}
+    </button>
+  ))}
+</div>
 
         {/* Section Produits */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
