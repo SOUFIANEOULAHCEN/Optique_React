@@ -104,7 +104,7 @@ export default function ProductGrid() {
               <h3 className="text-sm font-medium mb-2">{product.name}</h3>
               <div className="flex items-center justify-between">
                 <span className="text-lg font-bold text-emerald-900">
-                  {product.price.toFixed(2)} €
+                  {product.price.toFixed(2)} Dh
                 </span>
                 <button
                   onClick={() => addToCart(product)}

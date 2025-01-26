@@ -42,7 +42,7 @@ export default function Favorites() {
                 <p className="text-gray-700 mb-4">{product.description}</p>
                 <div className="flex items-center justify-between">
                   <span className="text-lg font-bold text-emerald-900">
-                    {product.price.toFixed(2)} €
+                    {product.price.toFixed(2)} Dh
                   </span>
                   <button
                     onClick={() => addToCart(product)}

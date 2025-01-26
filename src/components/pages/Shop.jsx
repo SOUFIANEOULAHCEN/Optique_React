@@ -34,20 +34,6 @@ export default function Shop() {
           Explorez notre collection complète de lunettes de vue, de soleil et de sport.
         </p>
 
-        {/* Section Filtres par Catégorie */}
-        {/* <div className="flex justify-center gap-4 mb-12">
-          {categories.map((category) => (
-            <button
-              key={category.id}
-              onClick={() => setSelectedCategory(category.name)}
-              className={`px-4 py-2 bg-white text-emerald-900 rounded-lg hover:bg-emerald-900 hover:text-white transition-colors ${
-                selectedCategory === category.name ? 'bg-emerald-900 !text-white' : ''
-              }`}
-            >
-              {category.name}
-            </button>
-          ))}
-        </div> */}
 
 <div className="flex justify-center gap-4 mb-12">
   {categories.map((category) => (
@@ -79,7 +65,7 @@ export default function Shop() {
                 <p className="text-gray-700 mb-4">{product.category}</p>
                 <div className="flex items-center justify-between">
                   <span className="text-lg font-bold text-emerald-900">
-                    {product.price.toFixed(2)} €
+                    {product.price.toFixed(2)} Dh
                   </span>
                   <button
                     onClick={() => addToCart(product)}
@@ -111,7 +97,7 @@ export default function Shop() {
                     <div className="ml-4">
                       <h3 className="text-lg font-bold text-emerald-900">{item.name}</h3>
                       <p className="text-gray-700">
-                        {item.quantity} x {item.price.toFixed(2)} €
+                        {item.quantity} x {item.price.toFixed(2)} Dh
                       </p>
                     </div>
                   </div>
@@ -125,7 +111,7 @@ export default function Shop() {
               ))}
               <div className="border-t pt-4">
                 <p className="text-xl font-bold text-emerald-900">
-                  Total : {total.toFixed(2)} €
+                  Total : {total.toFixed(2)} Dh
                 </p>
               </div>
             </>

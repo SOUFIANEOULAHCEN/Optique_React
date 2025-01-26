@@ -7,26 +7,30 @@ import 'swiper/css/effect-fade';
 import { Autoplay, Pagination, EffectFade } from 'swiper/modules';
 import { motion } from 'framer-motion';
 
+import lunette_hero from '../data/img/lunette_hero.webp'
+import lunette_hero2 from '../data/img/lunette_hero2.webp'
+import lunette_hero3 from '../data/img/lunette_hero3.webp'
+
 export default function Hero() {
   const navigate = useNavigate();
 
   const slides = [
     {
-      image: 'https://images.pexels.com/photos/701877/pexels-photo-701877.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1', // Lunettes de vue
+      image: lunette_hero3, // Lunettes de vue
       imageMobile: 'https://images.pexels.com/photos/701877/pexels-photo-701877.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&dpr=1', // Version mobile
       title: 'Collection Printemps 2024 - Lunettes de Vue',
     },
     {
-      image: 'https://images.pexels.com/photos/2765872/pexels-photo-2765872.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1', // Lunettes de soleil
+      image: lunette_hero, // Lunettes de soleil
       imageMobile: 'https://images.pexels.com/photos/2765872/pexels-photo-2765872.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&dpr=1', // Version mobile
       title: 'Lunettes de Soleil Élégantes',
     }
     ,
-    // {
-    //   image: 'https://images.pexels.com/photos/3522526/pexels-photo-3522526.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1', // Lunettes de sport
-    //   imageMobile: 'https://images.pexels.com/photos/3522526/pexels-photo-3522526.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&dpr=1', // Version mobile
-    //   title: 'Lunettes de Sport Performantes',
-    // },
+    {
+      image:lunette_hero2 ,// Lunettes de sport
+      imageMobile: 'https://images.pexels.com/photos/3522526/pexels-photo-3522526.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&dpr=1', // Version mobile
+      title: 'Lunettes de Sport Performantes',
+    },
   ];
 
   const handleBuyNow = () => {

@@ -22,7 +22,7 @@ export default function Profile() {
               {cart.map((item) => (
                 <div key={item.id} className="border-b pb-4 dark:border-gray-700">
                   <h3 className="text-lg font-bold text-emerald-900 dark:text-gray-300">{item.name}</h3>
-                  <p className="text-gray-700 dark:text-gray-400">{item.quantity} x {item.price.toFixed(2)} €</p>
+                  <p className="text-gray-700 dark:text-gray-400">{item.quantity} x {item.price.toFixed(2)} Dh</p>
                 </div>
               ))}
             </div>

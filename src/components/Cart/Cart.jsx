@@ -23,7 +23,7 @@ export default function Cart() {
                 <div className="flex justify-between items-center">
                   <div>
                     <h3 className="text-lg font-bold">{product.name}</h3>
-                    <p className="text-gray-700">{product.price.toFixed(2)} €</p>
+                    <p className="text-gray-700">{product.price.toFixed(2)} Dh</p>
                   </div>
                   <div className="flex items-center gap-4">
                     <button
@@ -50,7 +50,7 @@ export default function Cart() {
               </div>
             ))}
             <div className="text-right mt-8">
-              <h3 className="text-2xl font-bold">Total : {calculateTotal()} €</h3>
+              <h3 className="text-2xl font-bold">Total : {calculateTotal()} Dh</h3>
               {/* Bouton "Passer au paiement" */}
               <Link
                 to="/checkout"
