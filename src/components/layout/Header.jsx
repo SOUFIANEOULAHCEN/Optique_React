@@ -5,6 +5,8 @@ import { CartContext } from '../../context/CartContext';
 import { useTheme } from '../../context/ThemeContext';
 import { useAuth } from '../../context/AuthContext'; // Importez useAuth pour accéder au profil
 
+
+import logo_principal from '../data/img/logo/logo_principal.png'
 export default function Header() {
   const { cart } = useContext(CartContext);
   const { isDarkMode, toggleTheme } = useTheme();
@@ -45,9 +47,9 @@ export default function Header() {
         </div>
 
         {/* Main Section: Logo, Navigation, and Cart */}
-        <div className="flex items-center justify-between py-4">
-          <Link to="/" className="text-2xl font-bold text-emerald-900 dark:text-gray-100">
-            OPTIQUE NOURIA
+        <div className="flex items-center justify-between py-1">
+          <Link to="/" className="w-28">
+           <img src={logo_principal} alt=""  />
           </Link>
 
           {/* Hamburger Menu for Mobile and Tablet */}
